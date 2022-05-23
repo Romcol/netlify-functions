@@ -1,11 +1,11 @@
-import {filterFish} from "./utils.js";
+import {filterFish, fishData} from "./utils.js";
 
 exports.handler = async function (event, context) {
     const input = event.queryStringParameters.q;
     if(!input) {
         return {
             statusCode: 404,
-            body: null,
+            body: JSON.stringify(fishData),
         };
     }
     return {
