@@ -6,10 +6,16 @@ exports.handler = async function (event, context) {
         return {
             statusCode: 404,
             body: JSON.stringify(fishData),
+            headers: {
+                "access-control-allow-origin": "*",
+            },
         };
     }
     return {
         statusCode: 200,
         body: JSON.stringify(filterFish(input)),
+        headers: {
+            "access-control-allow-origin": "*",
+        },
     };
 }
