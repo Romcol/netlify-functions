@@ -10,6 +10,7 @@ exports.handler = async function (event, context) {
         body: JSON.stringify(data),
         headers: {
             "access-control-allow-origin": "*",
+            "Access-Control-Expose-Headers": "x-total-count",
             "x-total-count": total,
         },
     };
