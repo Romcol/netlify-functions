@@ -9,8 +9,13 @@ export function prepareFishData(data) {
 
 export const fishData = prepareFishData(fish);
 
-export const filterFish = (inputValue) => {
-  return fishData.filter((i) =>
-    i.label.toLowerCase().includes(inputValue.toLowerCase()),
+export const filterFishPaginated = (inputValue, limit, page = 1) => {
+  const results = fishData.filter((i) =>
+      i.label.toLowerCase().includes(inputValue.toLowerCase()),
   );
+
+  return {
+    data: results.slice((page - 1) * limit, page * limit),
+    total: results.length,
+  };
 };
