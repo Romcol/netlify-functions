@@ -9,9 +9,9 @@ export function prepareFishData(data) {
 
 export const fishData = prepareFishData(fish);
 
-export const filterFishPaginated = (inputValue, limit, page = 1) => {
+export const filterFishPaginated = (inputValue, limit = 10, page = 1) => {
   const results = fishData.filter((i) =>
-      i.label.toLowerCase().includes(inputValue.toLowerCase()),
+      i.label.toLowerCase().includes(inputValue && inputValue.toLowerCase()),
   );
 
   return {
